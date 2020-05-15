@@ -8,7 +8,7 @@
 
 //import connection.js
 
-var connection = require('../config/connection.js');
+var connection = require("../config/connection.js");
 
 //pass 3 values int mySQL query
 //to write query, we need 3 questions marks
@@ -18,7 +18,7 @@ var connection = require('../config/connection.js');
 function productQuestionMarks(number) {
     var questArray = [];
     for (var i = 0; i < number; i++) {
-        questArray.push('?');
+        questArray.push("?");
     }
     return questArray.toString();
 }
@@ -45,7 +45,7 @@ function objToSql(ob) {
 //object for all SQL statement functions
 var orm = {
     selectAll: function (tableInput, callBack) {
-        var queryString = 'SELECT * FROM ' + tableInput + ';';
+        var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw (err);
@@ -54,13 +54,13 @@ var orm = {
         });
     },
     insertOne: function (table, columns, values, callback) {
-        var queryString = 'INSERT INTO ' + table;
-        queryString += ' (';
+        var queryString = "INSERT INTO " + table;
+        queryString += " (";
         queryString += columns.toString();
-        queryString += ') ';
-        queryString += 'VALUES (';
+        queryString += ") ";
+        queryString += "VALUES (";
         queryString += productQuestionMarks(values.length);
-        queryString += ') ';
+        queryString += ")";
 
         console.log(queryString);
 
@@ -72,11 +72,11 @@ var orm = {
         })
     },
     updateOne: function (table, objectColumnValues, condition, callback) {
-        var queryString = 'UPDATE ' + table;
+        var queryString = "UPDATE " + table;
 
-        queryString += ' SET ';
+        queryString += " SET ";
         queryString += objectColumnValues(objectColumnValues);
-        queryString += ' WHERE ';
+        queryString += " WHERE ";
         queryString += condition;
 
         console.log(queryString);

@@ -2,16 +2,17 @@
 //create the router for the app, export at end
 
 
-var express = require('express');
+var express = require("express");
 
 var router = express.Router();
 
 //import the model burgers.js to use database
-var burger = require('../models/burger.js');
+var burger = require("../models/burger.js");
+
 
 //create routes, index
-router.get('/', function (req, res) {
-    burger.all(function (data) {
+router.get("/", function (req, res) {
+    burger.selectAll(function (data) {
         var hbsObject = {
             burgers: data
         };
@@ -21,25 +22,25 @@ router.get('/', function (req, res) {
 });
 
 //create: post route and then redirect to /index
-router.post('/', function (req, res) {
-    burger.create([
+router.post("/", function (req, res) {
+    burger.insertOne([
         'burger_name', 'devoured'
     ], [
         req.body.burger_name, req.body.devoured
     ], function () {
-        res.redirect('/');
+        res.redirect("/");
     });
 });
 
 // update: put route and return to index 
-router.put('/:id', function (req, res) {
-    var condition = 'id = ' + req.params.id;
-    console.log('condition', condition);
+router.put("/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
 
-    burger.update({
+    burger.updateOne({
         devoured: req.body.devoured
     }, condition, function () {
-        res.redirect('/');
+        res.redirect("/");
     });
 });
 
