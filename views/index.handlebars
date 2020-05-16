@@ -19,21 +19,21 @@ Inside your burger directory, create a folder named views.
     {{!-- burger section --}}
     <div class='row'>
         {{!-- display burgers to eat --}}
-        <div class='col-md-5 text-center'>
+        <div class='col-md-6'>
             <h4>Burgers Available to Eat!</h4>
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <li>
-                    {{this.id}}
-                    {{this.burger_name}}
+                    <p><span class='label'>ID: </span>{{this.id}}</p>
+                    <p><span class='label'>Burger: </span>{{this.burger_name}}</p>
 
 
 
                     {{!-- devour it buttons --}}
                     <form class='form-group'>
-                        <input type='hidden' name='devoured' value={{this.id}}>
-                        <button class='btn-primary' type='submit'>Devour It!</button>
+                        <input type='hidden' name='devoured'>
+                        <button class='btn-primary delete' data-id={{this.id}}>Devour It!</button>
                     </form>
                 </li>
                 {{/unless}}
@@ -41,7 +41,7 @@ Inside your burger directory, create a folder named views.
             </ul>
         </div>
         {{!-- display burgers that have been eaten --}}
-        <div class='col-md-5 text-center'>
+        <div class='col-md-6 text-center'>
             <h4>Burgers That Have Been Eaten!</h4>
             <ul>
                 {{#each burgers}}
@@ -60,15 +60,21 @@ Inside your burger directory, create a folder named views.
         <div class='col-md-3'></div>
         {{!-- add a burger section use form/POST method w/submit button--}}
         <div class='col-md-6 text-center'>
-
+            <h4>Add a Burger!</h4>
+            <form class='create-form'>
+                <div class='form-group'>
+                    <p>Create a Burger to Eat and Click Submit!</p>
+                    <input type='text' id='createBurger' name='burger_name'>
+                    <button type='submit' class='btn primary' id='submitCreate'>Submit</button>
+                </div>
+            </form>
+            <div class='col-md-3'></div>
         </div>
-        <div class='col-md-3'></div>
+
+
+
+
+
+
+
     </div>
-
-
-
-
-
-
-
-</div>
