@@ -7,11 +7,68 @@ Inside your burger directory, create a folder named views.
 - Setup the index.handlebars to have the template that Handlebars can render onto.
 - Create a button in index.handlebars that will submit the user input into the database.
 -->
+{{!-- main container --}}
 <div class="container">
+    {{!-- main title --}}
     <div class='row'>
         <div class='col-lg-12 text-center' id='burger-image'>
             <h1>Eat-Da-Burger!</h1>
             <img src='/public/assets/images/burger1.png' />
         </div>
     </div>
+    {{!-- burger section --}}
+    <div class='row'>
+        {{!-- display burgers to eat --}}
+        <div class='col-md-5 text-center'>
+            <h4>Burgers Available to Eat!</h4>
+            <ul>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li>
+                    {{this.id}}
+                    {{this.burger_name}}
+
+
+
+                    {{!-- devour it buttons --}}
+                    <form class='form-group'>
+                        <input type='hidden' name='devoured' value={{this.id}}>
+                        <button class='btn-primary' type='submit'>Devour It!</button>
+                    </form>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        {{!-- display burgers that have been eaten --}}
+        <div class='col-md-5 text-center'>
+            <h4>Burgers That Have Been Eaten!</h4>
+            <ul>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <li>
+                    {{this.id}}
+                    {{this.burger_name}}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{!-- form for creating burgers --}}
+    <div class='row'>
+        <div class='col-md-3'></div>
+        {{!-- add a burger section use form/POST method w/submit button--}}
+        <div class='col-md-6 text-center'>
+
+        </div>
+        <div class='col-md-3'></div>
+    </div>
+
+
+
+
+
+
+
 </div>
