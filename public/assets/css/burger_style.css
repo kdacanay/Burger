@@ -4,7 +4,10 @@
 
 h1 {
     font-size: 60px;
+    color: #02c222;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 
 p {
     font-family: 'Wendy One', sans-serif;
@@ -12,7 +15,12 @@ p {
 
 h4 {
     font-family: 'Wendy One', sans-serif;
+    font-size: 28px;
+    color:
+        #02c222;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 
 body {
     background-color: #FFD620;
@@ -21,4 +29,9 @@ body {
 button.btn-primary {
     background-color: #FF1F14;
     border-color: #FF1F14;
+}
+
+button.btn-primary:hover {
+    background-color: #02c222;
+    border-color: #02c222;
 }
