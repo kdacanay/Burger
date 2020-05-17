@@ -13,7 +13,7 @@ Inside your burger directory, create a folder named views.
     <div class='row'>
         <div class='col-lg-12 text-center' id='burger-image'>
             <h1>Eat-Da-Burger!</h1>
-            <img src='/public/assets/images/burger1.png' />
+            <img src='/assets/images/burger1.png' width="250" />
         </div>
     </div>
     {{!-- burger section --}}
@@ -31,9 +31,9 @@ Inside your burger directory, create a folder named views.
 
 
                     {{!-- devour it buttons --}}
-                    <form class='form-group'>
-                        <input type='hidden' name='devoured'>
-                        <button class='btn-primary delete' data-id={{this.id}}>Devour It!</button>
+                    <form class='form-group devour'>
+                        <input type='hidden' type='text' class='devoured' value='{{this.id}}'>
+                        <button class='btn-primary devoured'>Devour It!</button>
                     </form>
                 </li>
                 {{/unless}}

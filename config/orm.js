@@ -28,6 +28,7 @@ function objToSql(ob) {
 
     // loop through the keys and push the key/value as a string int arr
     for (var key in ob) {
+
         var value = ob[key];
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
@@ -44,6 +45,7 @@ function objToSql(ob) {
 
 //object for all SQL statement functions
 var orm = {
+
     selectAll: function (tableInput, callBack) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
@@ -71,11 +73,11 @@ var orm = {
             callback(result);
         })
     },
-    updateOne: function (table, objectColumnValues, condition, callback) {
+    updateOne: function (table, objColVals, condition, callback) {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
-        queryString += objectColumnValues(objectColumnValues);
+        queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 

@@ -22,7 +22,7 @@ router.get("/", function (req, res) {
 });
 
 //create: post route and then redirect to /index
-router.post("/", function (req, res) {
+router.post("/burgers/create", function (req, res) {
     burger.insertOne([
         'burger_name', 'devoured'
     ], [
@@ -33,15 +33,17 @@ router.post("/", function (req, res) {
 });
 
 // update: put route and return to index 
-router.put("/:id", function (req, res) {
+router.put("/burgers/update/:id", function (req, res) {
     var condition = "id = " + req.params.id;
     console.log("condition", condition);
 
-    burger.updateOne({
-        devoured: req.body.devoured
-    }, condition, function () {
-        res.redirect("/");
-    });
+    burger.updateOne(
+        "burgers", {
+            devoured: req.body.devoured
+        }, condition,
+        function () {
+            res.redirect("/");
+        });
 });
 
 // export routes for server.js to use
