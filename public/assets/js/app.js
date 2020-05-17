@@ -1,16 +1,21 @@
 $(document).ready(function () {
 
 
-    $('.devour').on('submit', function (event) {
+    $('.devour').on('click', function (event) {
         event.preventDefault();
 
         var burger_id = $(this).children('.devoured').val();
         console.log(burger_id);
-        $.ajax({
+
+        newDevour = {
+            devoured: true,
+        }
+
+        $.ajax('/burgers/update/' + burger_id, {
             type: 'PUT',
-            url: '/burgers/update/' + burger_id
-        }).then(function (data) {
-            console.log(data);
+            data: newDevour
+        }).then(function () {
+            console.log('Changed devoured State to', newDevour);
             location.reload();
         })
     })

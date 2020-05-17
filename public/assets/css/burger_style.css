@@ -2,8 +2,23 @@
     font-family: 'Wendy One', sans-serif;
 }
 
-;
+h1 {
+    font-size: 60px;
+}
+
+p {
+    font-family: 'Wendy One', sans-serif;
+}
+
+h4 {
+    font-family: 'Wendy One', sans-serif;
+}
 
 body {
-    font-family: 'Wendy One', sans-serif;
+    background-color: #FFD620;
+}
+
+button.btn-primary {
+    background-color: #FF1F14;
+    border-color: #FF1F14;
 }
