@@ -21,22 +21,20 @@ Inside your burger directory, create a folder named views.
     <div class='row'>
         <div class='col-md-2'></div>
         {{!-- display burgers to eat --}}
-        <div class='col-md-4'>
-            <h4>Burgers Available to Eat!</h4>
-            <ul class='uneaten'>
+        <div class='col-md-4 text-center'>
+            <h4>Burgers Available!</h4>
+            <ul class='uneaten text-center' style="list-style-type:none;">
                 {{#each burgers}}
                 {{#unless this.devoured}}
-
                 {{> burgers/burger-block devoured=false}}
-
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
         {{!-- display burgers that have been eaten --}}
         <div class='col-md-4 text-center'>
-            <h4>Burgers That Were Eaten!</h4>
-            <ul class='eaten'>
+            <h4>Burgers Eaten!</h4>
+            <ul class='eaten text-center' style="list-style-type:none;">
                 {{#each burgers}}
                 {{#if this.devoured}}
                 {{> burgers/burger-block devoured=true}}
@@ -53,7 +51,7 @@ Inside your burger directory, create a folder named views.
         <div class='col-md-6 text-center'>
             <h4>Add a Burger!</h4>
             <form class='create-form'>
-                <div class='form-group'>
+                <div class='form-group text-center'>
                     <p>Create a Burger to Eat and Click Submit!</p>
                     <input type='text' id='createBurger' name='burger_name'>
                     <button type='submit' class='btn-primary' id='submitCreate'>Submit</button>
