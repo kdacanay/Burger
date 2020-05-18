@@ -10,7 +10,8 @@ CREATE TABLE burgers
     AUTO_INCREMENT NOT NULL,
 burger_name varchar
     (50) NOT NULL,
-devoured boolean NOT NULL,
+devoured boolean DEFAULT false,
 PRIMARY KEY
     (id)
 );
+

@@ -23,21 +23,12 @@ Inside your burger directory, create a folder named views.
         {{!-- display burgers to eat --}}
         <div class='col-md-4'>
             <h4>Burgers Available to Eat!</h4>
-            <ul>
+            <ul class='uneaten'>
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                <li>
-                    <p><span class='label'>ID: </span>{{this.id}}</p>
-                    <p><span class='label'>Burger: </span>{{this.burger_name}}</p>
 
+                {{> burgers/burger-block devoured=false}}
 
-
-                    {{!-- devour it buttons --}}
-                    <form class='form-group devour'>
-                        <input type='hidden' type='text' class='devoured' value='{{this.id}}'>
-                        <button class='btn-primary devoured'>Eat It!</button>
-                    </form>
-                </li>
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -45,13 +36,10 @@ Inside your burger directory, create a folder named views.
         {{!-- display burgers that have been eaten --}}
         <div class='col-md-4 text-center'>
             <h4>Burgers That Were Eaten!</h4>
-            <ul>
+            <ul class='eaten'>
                 {{#each burgers}}
                 {{#if this.devoured}}
-                <li>
-                    {{this.id}}
-                    {{this.burger_name}}
-                </li>
+                {{> burgers/burger-block devoured=true}}
                 {{/if}}
                 {{/each}}
             </ul>

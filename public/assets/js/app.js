@@ -4,18 +4,18 @@ $(document).ready(function () {
     $('.devour').on('click', function (event) {
         event.preventDefault();
 
-        var burger_id = $(this).children('.devoured').val();
-        console.log(burger_id);
+        var id = $(this).data('id');
+        var newEatState = {
+            devoured: true
+        };
 
-        newDevour = {
-            devoured: true,
-        }
-
-        $.ajax('/burgers/update/' + burger_id, {
+        console.log('burger id', id);
+        $.ajax('/burgers/update/' + id, {
             type: 'PUT',
-            data: newDevour
+            data: newEatState
         }).then(function () {
-            console.log('Changed devoured State to', newDevour);
+
+            console.log('changed to', newEatState);
             location.reload();
         })
     })
@@ -33,7 +33,7 @@ $(document).ready(function () {
         }).then(
             function () {
                 console.log('Created Burger');
-                location.reload();
+                location.reload()
             }
         )
     })
