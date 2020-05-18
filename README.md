@@ -6,6 +6,6 @@ https://salty-dusk-60929.herokuapp.com/
 
 <img src="/public/assets/images/screenshot.jpg" width = 800>
 
-<img src-"public/assets/images/handlebarsSS.jpg" width = 500>
+<img src="/public/assets/images/handlebarsSS.jpg" width = 500>
 
 <img src="/public/assets/images/ormSS.jpg" width = 500>
